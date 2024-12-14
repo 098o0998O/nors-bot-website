@@ -49,7 +49,11 @@
             background: linear-gradient(90deg, #555, #777);
         }
         audio {
-            display: none;
+            display: block;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            opacity: 0;
         }
     </style>
 </head>
@@ -62,10 +66,17 @@
         <a href="https://instagram.com/yourusername" target="_blank">Instagram</a>
         <a href="https://discord.com/users/youruserid" target="_blank">Discord</a>
     </div>
-    <audio autoplay loop>
-        <source src="https://cdn.discordapp.com/attachments/994225168241152000/1317608789016576080/Ufuk-Beydemir-Ay-Tenli-Kadin.mp3?ex=675f4e4f&is=675dfccf&hm=209dea214743d81d004f438aa02d609b0f4ff4f386f73a02367c598a11b7a3f8&" type="audio/mpeg">
+    <audio id="background-audio" autoplay loop>
+        <source src="ay_tenli_kadin.mp3" type="audio/mpeg">
         Tarayıcınız ses dosyasını desteklemiyor.
     </audio>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const audio = document.getElementById('background-audio');
+            audio.play().catch(e => {
+                console.error('Ses dosyası oynatılamadı. Kullanıcı etkileşimi gerekiyor.', e);
+            });
+        });
+    </script>
 </body>
 </html>
-
