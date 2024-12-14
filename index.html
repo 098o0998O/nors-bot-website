@@ -3,125 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Profile Page</title>
+    <title>Lost On You</title>
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #000000, #434343);
+            background: #000 no-repeat center center/cover;
             color: #fff;
-            overflow: hidden;
             height: 100vh;
+            overflow: hidden;
         }
         .container {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            text-align: center;
-        }
-        .logo {
-            width: 100px;
-            height: 100px;
-            background: url('sa.webp') no-repeat center center;
-            background-size: cover;
-            border-radius: 50%;
-            margin-bottom: 10px;
-        }
-        .arabic-text {
-            font-size: 1.5rem;
-            color: #ff7300;
-            margin-bottom: 10px;
-        }
-        .profile {
-            background: rgba(20, 20, 20, 0.7);
-            padding: 10px 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
             border-radius: 10px;
-            display: flex;
-            align-items: center;
-            margin: 10px;
+            text-align: center;
+            width: 300px;
         }
-        .profile img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-        .profile .username {
-            font-size: 1.5rem;
-            color: yellow;
-        }
-        .profile p {
-            margin: 0;
-            font-size: 0.8rem;
-            color: #ccc;
-        }
-        .links {
-            display: flex;
-            gap: 20px;
-            margin-top: 15px;
+        .status {
+            margin-bottom: 10px;
         }
         .links a {
             text-decoration: none;
-            color: #fff;
-            font-size: 1.5rem;
+            color: #ff7300;
+            font-size: 1rem;
+            display: block;
+            margin: 10px 0;
             transition: color 0.3s;
         }
         .links a:hover {
             color: yellow;
         }
-        .sword {
+        .background-input {
             position: absolute;
-            right: 20px;
             bottom: 20px;
-            width: 300px;
-            opacity: 0.8;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
         }
-        .snow {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            background: url('snowflake.png') repeat;
-            animation: snowfall 20s linear infinite;
+        .background-input input {
+            padding: 5px;
+            font-size: 1rem;
         }
-        @keyframes snowfall {
-            from {
-                transform: translateY(-100%);
-            }
-            to {
-                transform: translateY(100%);
-            }
+        .background-input button {
+            padding: 5px 10px;
+            font-size: 1rem;
+            background-color: #ff7300;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .background-input button:hover {
+            background-color: yellow;
         }
     </style>
 </head>
 <body>
-    <div class="snow"></div>
     <div class="container">
-        <div class="logo"></div>
-        <div class="arabic-text">
-            WJA6
-        </div>
-        <div class="profile">
-            <img src="sa.webp" alt="Profile Picture">
-            <div>
-                <div class="username">WJA6</div>
-                <p>Orosbu çocuğu bir araya gelmiş 1 aslan nasıl c</p>
-            </div>
+        <div class="status">
+            <h2>Discord Durumum</h2>
+            <p id="discord-status">Bağlanılıyor...</p>
         </div>
         <div class="links">
-            <a href="#">&#128081;</a>
-            <a href="#">&#127939;</a>
-            <a href="#">&#128296;</a>
-            <a href="#">&#128184;</a>
-            <a href="#">&#127758;</a>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+            <a href="https://discord.com" target="_blank">Discord</a>
         </div>
     </div>
-    <img src="sa.webp" alt="Sword" class="sword">
+
+    <div class="background-input">
+        <label for="background-url">Arka Plan Linki: </label>
+        <input type="text" id="background-url" placeholder="Resim URL'si girin">
+        <button onclick="setBackground()">Uygula</button>
+    </div>
+
+    <audio autoplay loop>
+        <source src="lost-on-you.mp3" type="audio/mpeg">
+        Tarayıcınız bu ses dosyasını desteklemiyor.
+    </audio>
+
+    <script>
+        async function fetchDiscordStatus() {
+            try {
+                const response = await fetch('https://api.lanyard.rest/v1/users/YOUR_DISCORD_ID');
+                const data = await response.json();
+
+                if (data.success) {
+                    document.getElementById('discord-status').textContent = data.data.activities.length > 0
+                        ? data.data.activities[0].name
+                        : 'Şu an boşta.';
+                } else {
+                    document.getElementById('discord-status').textContent = 'Durum alınamadı.';
+                }
+            } catch (error) {
+                document.getElementById('discord-status').textContent = 'Bağlanırken hata oluştu.';
+            }
+        }
+
+        function setBackground() {
+            const url = document.getElementById('background-url').value;
+            if (url) {
+                document.body.style.backgroundImage = `url('${url}')`;
+            }
+        }
+
+        fetchDiscordStatus();
+    </script>
 </body>
 </html>
 
