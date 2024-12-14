@@ -75,9 +75,9 @@
     </div>
 
     <div class="background-input">
-        <label for="background-url">Arka Plan Linki: </label>
-        <input type="text" id="background-url" placeholder="Resim URL'si girin">
-        <button onclick="setBackground()">Uygula</button>
+        <label for="background-url"> </label>
+        <input type="text" id="background-url" placeholder="https://media.discordapp.net/attachments/994225168241152000/1317601248765280256/Q_6RdvzbR0y8hXNXDXFLjA.webp?ex=675f4749&is=675df5c9&hm=3bb6e2a83826bb4a348d05ae9f38bf6622a40ded481a6de5849bc505cebd912d&=&format=webp&width=1181&height=662">
+        <button onclick="setBackground()"> </button>
     </div>
 
     <audio autoplay loop>
@@ -88,7 +88,7 @@
     <script>
         async function fetchDiscordStatus() {
             try {
-                const response = await fetch('https://api.lanyard.rest/v1/users/YOUR_DISCORD_ID');
+                const response = await fetch('https://api.lanyard.rest/v1/users/993584471972532415');
                 const data = await response.json();
 
                 if (data.success) {
