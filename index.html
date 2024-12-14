@@ -3,81 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Arena Game</title>
+    <title>Ay Tenli Kadın</title>
     <style>
         body {
             margin: 0;
-            overflow: hidden;
             font-family: Arial, sans-serif;
-            background-color: #222;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
         }
-        canvas {
-            display: block;
-            background: #333;
-            border: 2px solid #555;
-            margin: auto;
-            position: absolute;
-            top: 0; left: 0; bottom: 0; right: 0;
+        .content {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .content h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        .content p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+        .links {
+            display: flex;
+            gap: 20px;
+        }
+        .links a {
+            text-decoration: none;
+            color: #fff;
+            background: linear-gradient(90deg, #333, #555);
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .links a:hover {
+            background: linear-gradient(90deg, #555, #777);
+        }
+        audio {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <canvas id="gameCanvas"></canvas>
-
-    <script>
-        // Set up canvas
-        const canvas = document.getElementById('gameCanvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        // Player properties
-        const player = {
-            x: canvas.width / 2,
-            y: canvas.height / 2,
-            size: 20,
-            color: 'lime',
-            speed: 5,
-        };
-
-        // Key press state
-        const keys = {
-            ArrowUp: false,
-            ArrowDown: false,
-            ArrowLeft: false,
-            ArrowRight: false,
-        };
-
-        // Event listeners for movement
-        window.addEventListener('keydown', (e) => {
-            if (keys.hasOwnProperty(e.key)) keys[e.key] = true;
-        });
-
-        window.addEventListener('keyup', (e) => {
-            if (keys.hasOwnProperty(e.key)) keys[e.key] = false;
-        });
-
-        // Game loop
-        function update() {
-            // Move player
-            if (keys.ArrowUp && player.y > 0) player.y -= player.speed;
-            if (keys.ArrowDown && player.y < canvas.height - player.size) player.y += player.speed;
-            if (keys.ArrowLeft && player.x > 0) player.x -= player.speed;
-            if (keys.ArrowRight && player.x < canvas.width - player.size) player.x += player.speed;
-
-            // Clear canvas
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            // Draw player
-            ctx.fillStyle = player.color;
-            ctx.fillRect(player.x, player.y, player.size, player.size);
-
-            // Call update again
-            requestAnimationFrame(update);
-        }
-
-        // Start the game loop
-        update();
-    </script>
+    <div class="content">
+        <h1>Ay Tenli Kadın</h1>
+        <p>Hoş geldiniz! Aşağıdaki bağlantılardan bana ulaşabilirsiniz.</p>
+    </div>
+    <div class="links">
+        <a href="https://instagram.com/yourusername" target="_blank">Instagram</a>
+        <a href="https://discord.com/users/youruserid" target="_blank">Discord</a>
+    </div>
+    <audio autoplay loop>
+        <source src="ay_tenli_kadin.mp3" type="audio/mpeg">
+        Tarayıcınız ses dosyasını desteklemiyor.
+    </audio>
 </body>
 </html>
