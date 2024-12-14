@@ -3,115 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lost On You</title>
+    <title>WJA6 Profile</title>
     <style>
         body {
             margin: 0;
+            padding: 0;
             font-family: Arial, sans-serif;
-            background: #000 no-repeat center center/cover;
-            color: #fff;
             height: 100vh;
-            overflow: hidden;
+            background: url('background.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
         }
-        .container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            border-radius: 10px;
+
+        .profile-card {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
             text-align: center;
-            width: 300px;
+            width: 400px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
         }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            margin-top: -70px;
+            object-fit: cover;
+        }
+
+        .username {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 10px 0 5px;
+        }
+
         .status {
-            margin-bottom: 10px;
-        }
-        .links a {
-            text-decoration: none;
-            color: #ff7300;
+            color: #ccc;
             font-size: 1rem;
-            display: block;
-            margin: 10px 0;
+            margin-bottom: 15px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.5rem;
             transition: color 0.3s;
         }
-        .links a:hover {
-            color: yellow;
+
+        .social-icons a:hover {
+            color: #ff7300;
         }
-        .background-input {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-        }
-        .background-input input {
-            padding: 5px;
-            font-size: 1rem;
-        }
-        .background-input button {
-            padding: 5px 10px;
-            font-size: 1rem;
-            background-color: #ff7300;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-        .background-input button:hover {
-            background-color: yellow;
+
+        audio {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="status">
-            <h2>Discord Durumum</h2>
-            <p id="discord-status">Bağlanılıyor...</p>
-        </div>
-        <div class="links">
-            <a href="https://instagram.com" target="_blank">Instagram</a>
-            <a href="https://discord.com" target="_blank">Discord</a>
+    <!-- Profile Card -->
+    <div class="profile-card">
+        <img src="avatar.jpg" alt="Avatar" class="avatar">
+        <div class="username">wja6</div>
+        <div class="status">God something is happening to me</div>
+        <div class="social-icons">
+            <a href="https://discord.com" target="_blank">&#128172;</a>
+            <a href="https://instagram.com" target="_blank">&#128247;</a>
         </div>
     </div>
 
-    <div class="background-input">
-        <label for="background-url"> </label>
-        <input type="text" id="background-url" placeholder="https://media.discordapp.net/attachments/994225168241152000/1317601248765280256/Q_6RdvzbR0y8hXNXDXFLjA.webp?ex=675f4749&is=675df5c9&hm=3bb6e2a83826bb4a348d05ae9f38bf6622a40ded481a6de5849bc505cebd912d&=&format=webp&width=1181&height=662">
-        <button onclick="setBackground()"> </button>
-    </div>
-
+    <!-- Background Music -->
     <audio autoplay loop>
         <source src="lost-on-you.mp3" type="audio/mpeg">
-        Tarayıcınız bu ses dosyasını desteklemiyor.
+        Tarayıcınız ses dosyasını desteklemiyor.
     </audio>
-
-    <script>
-        async function fetchDiscordStatus() {
-            try {
-                const response = await fetch('https://api.lanyard.rest/v1/users/993584471972532415');
-                const data = await response.json();
-
-                if (data.success) {
-                    document.getElementById('discord-status').textContent = data.data.activities.length > 0
-                        ? data.data.activities[0].name
-                        : 'Şu an boşta.';
-                } else {
-                    document.getElementById('discord-status').textContent = 'Durum alınamadı.';
-                }
-            } catch (error) {
-                document.getElementById('discord-status').textContent = 'Bağlanırken hata oluştu.';
-            }
-        }
-
-        function setBackground() {
-            const url = document.getElementById('background-url').value;
-            if (url) {
-                document.body.style.backgroundImage = `url('${url}')`;
-            }
-        }
-
-        fetchDiscordStatus();
-    </script>
 </body>
 </html>
-
