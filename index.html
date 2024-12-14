@@ -1,82 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ay Tenli Kadın</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: url('sa.webp') no-repeat center center fixed;
-            background-size: cover;
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
-        }
-        .content {
-            text-align: center;
-            margin-bottom: 20px;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            border-radius: 10px;
-        }
-        .content h1 {
-            font-size: 3rem;
-            margin: 0;
-        }
-        .content p {
-            font-size: 1.2rem;
-            margin: 10px 0;
-        }
-        .links {
-            display: flex;
-            gap: 20px;
-        }
-        .links a {
-            text-decoration: none;
-            color: #fff;
-            background: linear-gradient(90deg, #333, #555);
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        .links a:hover {
-            background: linear-gradient(90deg, #555, #777);
-        }
-        audio {
-            display: block;
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            opacity: 0;
-        }
-    </style>
+    <title>Lost On You</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="content">
-        <h1>Ay Tenli Kadın</h1>
-        <p>Hoş geldiniz! Aşağıdaki bağlantılardan bana ulaşabilirsiniz.</p>
-    </div>
-    <div class="links">
-        <a href="https://instagram.com/yourusername" target="_blank">Instagram</a>
-        <a href="https://discord.com/users/youruserid" target="_blank">Discord</a>
-    </div>
-    <audio id="background-audio" autoplay loop>
-        <source src="ay_tenli_kadin.mp3" type="audio/mpeg">
-        Tarayıcınız ses dosyasını desteklemiyor.
+
+    <!-- Müzik ve Tema -->
+    <audio id="audioPlayer" autoplay loop>
+        <source src="LostOnYou.mp3" type="audio/mp3">
+        Tarayıcınız bu tür dosyayı desteklemiyor.
     </audio>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const audio = document.getElementById('background-audio');
-            audio.play().catch(e => {
-                console.error('Ses dosyası oynatılamadı. Kullanıcı etkileşimi gerekiyor.', e);
-            });
-        });
-    </script>
+
+    <!-- Başlık ve Tasarım -->
+    <div class="container">
+        <div class="header">
+            <h1>Hoş Geldiniz!</h1>
+            <p>Sayfanızda "Lost on You" şarkısı çalıyor.</p>
+        </div>
+
+        <!-- Sosyal Medya Bağlantıları -->
+        <div class="social-links">
+            <a href="https://discord.com/users/your_discord_id" target="_blank">
+                <img src="discord_icon.png" alt="Discord">
+            </a>
+            <a href="https://www.instagram.com/your_instagram_handle" target="_blank">
+                <img src="instagram_icon.png" alt="Instagram">
+            </a>
+        </div>
+
+        <!-- Discord Durumu (dinamik olarak değişecek) -->
+        <div class="discord-status">
+            <p>Discord Durumunuz: <span id="discord-status">Yükleniyor...</span></p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
