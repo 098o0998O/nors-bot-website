@@ -5,70 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>wja6</title>
     <style>
-        /* General Reset */
+        /* Genel Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Body Styling */
+        /* Arka Plan */
         body {
-            background: url('YOUR_IMAGE_PATH_HERE') no-repeat center center fixed;
+            background: url('YOUR_BACKGROUND_IMAGE_PATH') no-repeat center center fixed;
             background-size: cover;
             font-family: Arial, sans-serif;
+            color: #fff;
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
 
-        /* Main Container */
-        .container {
-            text-align: center;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 30px;
+        /* Şeffaf Kutu */
+        .overlay {
+            background: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            width: 400px;
         }
 
-        /* Profile Image */
+        /* Profil Resmi */
         .profile-img {
             width: 120px;
             height: 120px;
             border-radius: 50%;
             border: 3px solid #fff;
-            margin-bottom: 15px;
-        }
-
-        /* Username Text */
-        h1 {
-            font-size: 2.5rem;
             margin-bottom: 10px;
         }
 
-        /* Subtitle */
-        p {
-            font-size: 1.2rem;
-            opacity: 0.8;
+        /* Kullanıcı Adı */
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: bold;
         }
 
-        /* Music Player */
-        audio {
-            margin-top: 15px;
+        /* Alt Kullanıcı İsmi */
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        /* Mesaj Bölümü */
+        .message {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        /* Göz Simgesi */
+        .view-count {
+            font-size: 0.9rem;
+            margin-top: 10px;
+            opacity: 0.7;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- Ana İçerik -->
+    <div class="overlay">
         <img src="YOUR_PROFILE_IMAGE_PATH" alt="Profile Image" class="profile-img">
         <h1>wja6</h1>
-        <p>God something is happening to me</p>
-        <audio autoplay loop controls>
-            <source src="YOUR_AUDIO_FILE_PATH" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
+        <div class="subtitle">WJA6</div>
+        <div class="message">
+            <p>⚪ God something is happening to me</p>
+        </div>
+        <div class="view-count">
+            👁️ 1
+        </div>
     </div>
+
+    <!-- Otomatik Müzik Çalar -->
+    <audio autoplay loop>
+        <source src="YOUR_AUDIO_FILE_PATH" type="audio/mp3">
+        Tarayıcınız bu ses öğesini desteklemiyor.
+    </audio>
 </body>
 </html>
