@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>wja6</title>
+    <title>Discord Durumum</title>
     <style>
         /* Genel Reset */
         * {
@@ -26,48 +26,50 @@
 
         /* Şeffaf Kutu */
         .overlay {
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
-            padding: 30px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            padding: 25px;
             text-align: center;
             width: 400px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
         }
 
         /* Profil Resmi */
         .profile-img {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            border: 3px solid #fff;
+            border: 2px solid #fff;
             margin-bottom: 10px;
         }
 
         /* Kullanıcı Adı */
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 2.2rem;
             font-weight: bold;
+            margin-bottom: 5px;
         }
 
         /* Alt Kullanıcı İsmi */
         .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.8;
-            margin-bottom: 20px;
-        }
-
-        /* Mesaj Bölümü */
-        .message {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 10px;
-            border-radius: 10px;
             font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 15px;
         }
 
-        /* Göz Simgesi */
+        /* Durum Bölümü */
+        .status {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 1rem;
+            box-shadow: inset 0 1px 4px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Küçük Göz Sayacı */
         .view-count {
             font-size: 0.9rem;
-            margin-top: 10px;
+            margin-top: 15px;
             opacity: 0.7;
         }
     </style>
@@ -76,19 +78,19 @@
     <!-- Ana İçerik -->
     <div class="overlay">
         <img src="YOUR_PROFILE_IMAGE_PATH" alt="Profile Image" class="profile-img">
-        <h1>wja6</h1>
-        <div class="subtitle">WJA6</div>
-        <div class="message">
-            <p>⚪ God something is happening to me</p>
+        <h1>Discord Durumum</h1>
+        <div class="subtitle">wja6 • Online</div>
+        <div class="status">
+            🎧 "God something is happening to me"
         </div>
         <div class="view-count">
-            👁️ 235
+            👁️ 1
         </div>
     </div>
 
-    <!-- Otomatik Müzik Çalar -->
+    <!-- Otomatik Müzik -->
     <audio autoplay loop>
-        <source src="YOUR_AUDIO_FILE_PATH" type="https://cdn.discordapp.com/attachments/994225168241152000/1317608789016576080/Ufuk-Beydemir-Ay-Tenli-Kadin.mp3?ex=675ff70f&is=675ea58f&hm=40d774725521951e9998eb6345db608a5adde75d1ee6d870d725eb78cc8e6254&">
+        <source src="YOUR_AUDIO_FILE_PATH" type="audio/mp3">
         Tarayıcınız bu ses öğesini desteklemiyor.
     </audio>
 </body>
