@@ -3,89 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WJA6 Profile</title>
+    <title>wja6</title>
     <style>
-        body {
+        /* General Reset */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            background: url('YOUR_IMAGE_PATH_HERE') no-repeat center center fixed;
+            background-size: cover;
             font-family: Arial, sans-serif;
             height: 100vh;
-            background: url('background.jpg') no-repeat center center/cover;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             color: #fff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
 
-        .profile-card {
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
+        /* Main Container */
+        .container {
             text-align: center;
-            width: 400px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 10px;
         }
 
-        .avatar {
+        /* Profile Image */
+        .profile-img {
             width: 120px;
             height: 120px;
             border-radius: 50%;
             border: 3px solid #fff;
-            margin-top: -70px;
-            object-fit: cover;
-        }
-
-        .username {
-            font-size: 2rem;
-            font-weight: bold;
-            margin: 10px 0 5px;
-        }
-
-        .status {
-            color: #ccc;
-            font-size: 1rem;
             margin-bottom: 15px;
         }
 
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
+        /* Username Text */
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
         }
 
-        .social-icons a {
-            text-decoration: none;
-            color: #fff;
-            font-size: 1.5rem;
-            transition: color 0.3s;
+        /* Subtitle */
+        p {
+            font-size: 1.2rem;
+            opacity: 0.8;
         }
 
-        .social-icons a:hover {
-            color: #ff7300;
-        }
-
+        /* Music Player */
         audio {
-            display: none;
+            margin-top: 15px;
         }
     </style>
 </head>
 <body>
-    <!-- Profile Card -->
-    <div class="profile-card">
-        <img src="avatar.jpg" alt="Avatar" class="avatar">
-        <div class="username">wja6</div>
-        <div class="status">God something is happening to me</div>
-        <div class="social-icons">
-            <a href="https://discord.com" target="_blank">&#128172;</a>
-            <a href="https://instagram.com" target="_blank">&#128247;</a>
-        </div>
+    <div class="container">
+        <img src="YOUR_PROFILE_IMAGE_PATH" alt="Profile Image" class="profile-img">
+        <h1>wja6</h1>
+        <p>God something is happening to me</p>
+        <audio autoplay loop controls>
+            <source src="YOUR_AUDIO_FILE_PATH" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
     </div>
-
-    <!-- Background Music -->
-    <audio autoplay loop>
-        <source src="lost-on-you.mp3" type="audio/mpeg">
-        Tarayıcınız ses dosyasını desteklemiyor.
-    </audio>
 </body>
 </html>
